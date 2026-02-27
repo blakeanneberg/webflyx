@@ -29,3 +29,8 @@
 2. Switch to main: git checkout main
 3. Merge your feature branch (fast-forward): git merge update_dune
 - Merge (with a merge commit) when bringing the feature into main to mark "this feature was completed here"
+
+
+## git reset --soft <hash>
+- git reset command can be used to undo the last commit(s) or any changes in the index (staged but not committed changes) and the worktree (unstaged and not committed changes).
+- --soft option is useful if you just want to go back to a previous commit, but keep all of your changes. Committed changes will be uncommitted and staged, while uncommitted changes will remain staged or unstaged as before.
