@@ -6,6 +6,7 @@ from asteroidfield import AsteroidField
 from player import Player
 from constants import SCREEN_WIDTH, SCREEN_HEIGHT
 from logger import log_state, log_event
+import shot
 
 
 ## Game Loop
@@ -40,7 +41,12 @@ def main():
                 log_event("player_hit")
                 print("Game Over!")
                 sys.exit()
-        log_state()
+            for shot in shots:
+                if asteroid.collides_with(shot):
+                    log_event("asteroid_shot")
+                    shot.kill()
+                    asteroid.split()
+                    log_state()
         screen.fill("black")
         for obj in drawable:
             obj.draw(screen)
